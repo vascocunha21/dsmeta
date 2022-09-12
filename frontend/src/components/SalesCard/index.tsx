@@ -19,11 +19,20 @@ function SalesCard() {
     const [sales, setSales] = useState<Sale[]>([]);
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/sales`)
+
+        // Cortar as datas para o formato que queremos
+        const dmin = minDate.toISOString().slice(0, 10); 
+        const dmax = maxDate.toISOString().slice(0, 10); 
+
+        console.log(dmin);
+        console.log(dmax);
+
+        axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
             .then(response => {
                 setSales(response.data.content)
             });
-    }, []);
+            // Sempre que o minDate ou maxDate for alterado, dá reload
+    }, [minDate, maxDate]);
 
     return (
         <div className="dsmeta-card">
