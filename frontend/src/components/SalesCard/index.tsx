@@ -15,7 +15,7 @@ function SalesCard() {
     const [maxDate, setMaxDate] = useState(max);
 
     useEffect(()=>{
-        axios.get("https://dsmeta-vasco.herokuapp.com/sales")
+        axios.get("http://localhost:8080/sales")
         .then(response =>{
             console.log(response.data);
         });
