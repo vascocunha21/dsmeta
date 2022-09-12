@@ -1,11 +1,12 @@
-import NotificationButton from "./components/NotificationButton"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from "./components/Header"
 import SalesCard from "./components/SalesCard"
-
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Header />
       <main>
         <section id="sales">
@@ -14,8 +15,6 @@ function App() {
           </div>
         </section>
       </main>
-      <NotificationButton />
-      <NotificationButton />
     </>
   )
 }
